@@ -40,20 +40,20 @@ int filaVazia(Fila *f) {
 // Adiciona nova peça ao final da fila (enqueue)
 void enfileirar(Fila *f, char nome, int id) {
     if (filaCheia(f)) {
-        printf("\n⚠️  Fila cheia! Não é possível adicionar nova peça.\n");
+        printf("\n Fila cheia! Não é possível adicionar nova peça.\n");
         return;
     }
     f->fim = (f->fim + 1) % TAMANHO_FILA;
     f->fila[f->fim].nome = nome;
     f->fila[f->fim].id = id;
     f->qtd++;
-    printf("\n✅ Peça %c (id=%d) adicionada à fila.\n", nome, id);
+    printf("\nPeça %c (id=%d) adicionada à fila.\n", nome, id);
 }
 
 // Remove peça da frente (dequeue)
 void desenfileirar(Fila *f) {
     if (filaVazia(f)) {
-        printf("\n⚠️  Fila vazia! Nenhuma peça para jogar.\n");
+        printf("\nFila vazia! Nenhuma peça para jogar.\n");
         return;
     }
     Peca p = f->fila[f->inicio];
@@ -69,7 +69,7 @@ void exibirFila(Fila *f) {
         return;
     }
 
-    printf("\n📦 Peças na fila:\n");
+    printf("\nPeças na fila:\n");
     int i, idx;
     for (i = 0; i < f->qtd; i++) {
         idx = (f->inicio + i) % TAMANHO_FILA;
@@ -114,7 +114,7 @@ int main() {
                 exibirFila(&fila);
                 break;
             case 0:
-                printf("\n👋 Encerrando o jogo...\n");
+                printf("\nEncerrando o jogo.\n");
                 break;
             default:
                 printf("\n❌ Opção inválida!\n");
